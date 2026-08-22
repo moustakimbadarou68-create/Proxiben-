@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ProxiBen - Trouvez un professionnel</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f6f8fa;
+color:#172033;
+}
+
+header{
+background:white;
+padding:16px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-bottom:1px solid #eee;
+}
+
+.logo{
+font-size:25px;
+font-weight:bold;
+}
+
+.logo span{
+color:#087f5b;
+}
+
+.menu{
+display:flex;
+gap:10px;
+}
+
+.menu a{
+text-decoration:none;
+color:#172033;
+font-size:14px;
+}
+
+.hero{
+background:linear-gradient(135deg,#087f5b,#0aa874);
+color:white;
+padding:65px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:36px;
+max-width:750px;
+margin:auto;
+line-height:1.15;
+}
+
+.hero p{
+margin:18px auto;
+max-width:600px;
+font-size:17px;
+line-height:1.5;
+}
+
+.search-box{
+background:white;
+max-width:750px;
+margin:30px auto 0;
+padding:12px;
+border-radius:14px;
+display:flex;
+gap:8px;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.search-box input,
+.search-box select{
+flex:1;
+padding:14px;
+border:1px solid #ddd;
+border-radius:9px;
+font-size:14px;
+}
+
+.search-box button{
+background:#172033;
+color:white;
+border:0;
+padding:14px 20px;
+border-radius:9px;
+font-weight:bold;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:55px 20px;
+}
+
+.title{
+text-align:center;
+margin-bottom:30px;
+}
+
+.title h2{
+font-size:28px;
+}
+
+.title p{
+color:#667085;
+margin-top:8px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:16px;
+}
+
+.service{
+background:white;
+padding:25px 15px;
+border-radius:14px;
+text-align:center;
+border:1px solid #eee;
+transition:.2s;
+}
+
+.service:hover{
+transform:translateY(-4px);
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.icon{
+font-size:40px;
+margin-bottom:12px;
+}
+
+.service h3{
+font-size:17px;
+margin-bottom:7px;
+}
+
+.service p{
+font-size:13px;
+color:#667085;
+}
+
+.pro-section{
+background:#eef8f4;
+}
+
+.pro-card{
+background:#172033;
+color:white;
+padding:40px 25px;
+border-radius:18px;
+text-align:center;
+}
+
+.pro-card h2{
+font-size:28px;
+}
+
+.pro-card p{
+color:#d0d5dd;
+margin:12px 0 20px;
+line-height:1.5;
+}
+
+.pro-button{
+display:inline-block;
+background:white;
+color:#172033;
+padding:13px 22px;
+border-radius:9px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.steps{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:18px;
+}
+
+.step{
+background:white;
+padding:25px;
+border-radius:14px;
+border:1px solid #eee;
+}
+
+.number{
+width:38px;
+height:38px;
+background:#087f5b;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.step h3{
+margin-bottom:8px;
+}
+
+.step p{
+color:#667085;
+font-size:14px;
+line-height:1.5;
+}
+
+footer{
+background:#172033;
+color:white;
+padding:35px 20px;
+text-align:center;
+}
+
+footer p{
+color:#aab2c0;
+margin-top:8px;
+font-size:14px;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:29px;
+}
+
+.search-box{
+flex-direction:column;
+}
+
+.search-box button{
+width:100%;
+}
+
+.menu{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+<div class="logo">
+Proxi<span>Ben</span>
+</div>
+
+<div class="menu">
+<a href="#services">Services</a>
+<a href="#professionnels">Professionnels</a>
+<a href="#pro">Devenir pro</a>
+</div>
+
+</header>
+
+
+<section class="hero">
+
+<h1>
+Trouvez facilement un professionnel près de chez vous
+</h1>
+
+<p>
+Besoin d'un électricien, plombier, mécanicien,
+informaticien ou autre professionnel ?
+ProxiBen vous aide à trouver le bon.
+</p>
+
+
+<div class="search-box">
+
+<input
+type="text"
+placeholder="Ex : Électricien, plombier..."
+>
+
+<select>
+
+<option>Choisir une ville</option>
+<option>Cotonou</option>
+<option>Abomey-Calavi</option>
+<option>Porto-Novo</option>
+<option>Parakou</option>
+<option>Abomey</option>
+<option>Allada</option>
+
+</select>
+
+<button>
+Rechercher
+</button>
+
+</div>
+
+</section>
+
+
+<section class="container" id="services">
+
+<div class="title">
+
+<h2>Nos services</h2>
+
+<p>
+Trouvez rapidement le professionnel dont vous avez besoin.
+</p>
+
+</div>
+
+
+<div class="services">
+
+
+<div class="service">
+
+<div class="icon">⚡</div>
+
+<h3>Électricien</h3>
+
+<p>
+Installation, dépannage et maintenance électrique.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">🔧</div>
+
+<h3>Plombier</h3>
+
+<p>
+Installation et réparation de plomberie.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">📱</div>
+
+<h3>Réparation téléphone</h3>
+
+<p>
+Réparation de smartphones et tablettes.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">💻</div>
+
+<h3>Informatique</h3>
+
+<p>
+Dépannage et assistance informatique.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">🚗</div>
+
+<h3>Mécanicien</h3>
+
+<p>
+Entretien et réparation automobile.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">❄️</div>
+
+<h3>Climatisation</h3>
+
+<p>
+Installation et entretien de climatiseurs.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">💇</div>
+
+<h3>Coiffeur</h3>
+
+<p>
+Trouvez un coiffeur près de chez vous.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<div class="icon">👕</div>
+
+<h3>Couturier</h3>
+
+<p>
+Création et retouche de vêtements.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="container pro-section" id="pro">
+
+<div class="pro-card">
+
+<h2>
+Vous êtes professionnel ?
+</h2>
+
+<p>
+Inscrivez votre activité sur ProxiBen et
+faites-vous connaître auprès de nouveaux clients.
+</p>
+
+<a href="#" class="pro-button">
+Inscrire mon activité
+</a>
+
+</div>
+
+</section>
+
+
+<section class="container">
+
+<div class="title">
+
+<h2>
+Comment fonctionne ProxiBen ?
+</h2>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="number">1</div>
+
+<h3>Recherchez</h3>
+
+<p>
+Indiquez le service dont vous avez besoin
+et votre ville.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">2</div>
+
+<h3>Comparez</h3>
+
+<p>
+Découvrez les professionnels disponibles
+et leurs informations.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">3</div>
+
+<h3>Contactez</h3>
+
+<p>
+Contactez directement le professionnel
+pour votre prestation.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<div class="number">4</div>
+
+<h3>Évaluez</h3>
+
+<p>
+Après votre prestation, donnez votre avis
+pour aider les autres utilisateurs.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<footer>
+
+<strong>
+ProxiBen
+</strong>
+
+<p>
+Trouvez les bons professionnels au Bénin.
+</p>
+
+<p>
+© 2026 ProxiBen — Tous droits réservés.
+</p>
+
+</footer>
+
+
+</body>
+  </html>

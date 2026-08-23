@@ -185,4 +185,39 @@ button{
 </div>
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const supabaseClient = supabase.createClient(
+    "https://dnshtdmnohwwmmtqlnst.supabase.co",
+    "sb_publishable_UawwJPFPtpSjDGkIRLfykQ_X_ykqMgc"
+  );
+
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = new FormData(form);
+
+    const { error } = await supabaseClient
+      .from("professionnels")
+      .insert({
+        nom: data.get("nom"),
+        numero: data.get("numero"),
+        ville: data.get("ville"),
+        metier: data.get("metier"),
+        services: data.get("services")
+      });
+
+    if (error) {
+      alert("Erreur lors de l'envoi.");
+      console.error(error);
+      return;
+    }
+
+    alert("Votre demande a été envoyée avec succès !");
+    form.reset();
+  });
+</script>
 </html>

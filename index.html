@@ -566,6 +566,39 @@ Trouvez les bons professionnels au Bénin.
 
 
 </body>
+  <script>
+  async function chargerProfessionnels() {
+    const liste = document.getElementById("professionnels-list");
+
+    const { data, error } = await supabaseClient
+      .from("professionnels")
+      .select("nom, numero, ville, metier, services")
+      .order("nom", { ascending: true });
+
+    if (error) {
+      liste.innerHTML = "<p>Impossible de charger les professionnels.</p>";
+      console.error(error);
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      liste.innerHTML = "<p>Aucun professionnel inscrit pour le moment.</p>";
+      return;
+    }
+
+    liste.innerHTML = data.map(pro => `
+      <div class="professional-card">
+        <h3>${pro.nom}</h3>
+        <p><strong>Métier :</strong> ${pro.metier}</p>
+        <p><strong>Ville :</strong> ${pro.ville}</p>
+        <p>${pro.services || ""}</p>
+        <p><strong>Téléphone :</strong> ${pro.numero}</p>
+      </div>
+    `).join("");
+  }
+
+  chargerProfessionnels();
+  </script>
   </html>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 

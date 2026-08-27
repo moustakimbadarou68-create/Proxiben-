@@ -623,11 +623,8 @@ Trouvez les bons professionnels au Bénin.
         `;
       }).join("");
 
-    } catch (error) {
-      console.error(error);
-      liste.innerHTML = "<p>Erreur de chargement des professionnels.</p>";
-    }
-  });
-</script>
-
-</html>
+  } catch (error) {
+  console.error(error);
+  liste.innerHTML = "<p>Erreur : " + error.message + "</p>";
+    }:
+    </html>

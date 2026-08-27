@@ -606,7 +606,10 @@ Trouvez les bons professionnels au Bénin.
             <p><strong>Ville :</strong> ${pro.ville || ""}</p>
             <p>${pro.services || ""}</p>
             <p><strong>Téléphone :</strong> ${pro.numero || ""}</p>
-          </div>
+
+<a href="tel:${pro.numero}" class="contact-btn">
+  📞 Contacter
+</a>
         `;
       }).join("");
 

@@ -630,6 +630,7 @@ Trouvez les bons professionnels au Bénin.
 </script>
 
   <script>
+  window.addEventListener("DOMContentLoaded", function () {
   document.getElementById("bouton-recherche").addEventListener("click", async function () {
 
     const metier = document.getElementById("recherche-metier").value.trim();
@@ -678,6 +679,7 @@ Trouvez les bons professionnels au Bénin.
       liste.innerHTML = "<p>Erreur : " + error.message + "</p>";
     }
   });
+  });  
   </script>
 
 </html>

@@ -629,4 +629,55 @@ Trouvez les bons professionnels au Bénin.
   });
 </script>
 
+  <script>
+  document.getElementById("bouton-recherche").addEventListener("click", async function () {
+
+    const metier = document.getElementById("recherche-metier").value.trim();
+    const ville = document.getElementById("recherche-ville").value;
+    const liste = document.getElementById("professionnels-list");
+
+    liste.innerHTML = "<p>Recherche en cours...</p>";
+
+    try {
+      let requete = supabaseClient
+        .from("professionnels")
+        .select("nom, numero, ville, metier, services");
+
+      if (metier) {
+        requete = requete.ilike("metier", "%" + metier + "%");
+      }
+
+      if (ville) {
+        requete = requete.eq("ville", ville);
+      }
+
+      const { data, error } = await requete.order("nom", { ascending: true });
+
+      if (error) throw error;
+
+      if (!data || data.length === 0) {
+        liste.innerHTML = "<p>Aucun professionnel trouvé.</p>";
+        return;
+      }
+
+      liste.innerHTML = data.map(function (pro) {
+        return `
+          <div class="professional-card">
+            <h3>${pro.nom || ""}</h3>
+            <p><strong>Métier :</strong> ${pro.metier || ""}</p>
+            <p><strong>Ville :</strong> ${pro.ville || ""}</p>
+            <p>${pro.services || ""}</p>
+            <p><strong>Téléphone :</strong> ${pro.numero || ""}</p>
+            <a href="tel:${pro.numero}" class="contact-btn">📞 Contacter</a>
+          </div>
+        `;
+      }).join("");
+
+    } catch (error) {
+      console.error(error);
+      liste.innerHTML = "<p>Erreur : " + error.message + "</p>";
+    }
+  });
+  </script>
+
 </html>
